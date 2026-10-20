@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Contacto</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="Menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/valores">Mis Valores</a></li>
+                <li><a href="/skills">Mis Skills</a></li>
+                <li><a href="/proyectos">Mis Proyectos</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Solicitar Servicios</h2>
+            <p>Por favor completa el siguiente formulario con tus datos y los detalles del servicio que deseas adquirir.</p>
+            
+            <form action="/contacto" method="POST">
+                <div class="FormGroup">
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                </div>
+                
+                <div class="FormGroup">
+                    <label for="apellido">Apellido:</label><br>
+                    <input type="text" id="apellido" name="apellido" required placeholder="Tu apellido">
+                </div>
+                
+                <div class="FormGroup">
+                    <label for="correo">Correo Electrónico:</label><br>
+                    <input type="email" id="correo" name="correo" required placeholder="tuemail@ejemplo.com">
+                </div>
+                
+                <div class="FormGroup">
+                    <label for="descripcion">Descripción de los servicios deseados:</label><br>
+                    <textarea id="descripcion" name="descripcion" rows="6" cols="50" required placeholder="Escribe aquí en qué te puedo ayudar..."></textarea>
+                </div>
+                
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+

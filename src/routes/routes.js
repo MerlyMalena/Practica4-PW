@@ -18,7 +18,7 @@ function serveView(res, fileName, statusCode = 200) { // Enviar un OK
 
 // Función auxiliar para servir archivos estáticos (CSS, JS, imágenes)
 function serveStatic(res, relativePath) {
-  const filePath = path.join(__dirname, '..', '..', relativePath);
+  const filePath = path.join(__dirname, '..', 'public', relativePath);
 
   fs.readFile(filePath, (err, content) => {
     if (err) {
@@ -35,6 +35,7 @@ function serveStatic(res, relativePath) {
       '.png': 'image/png',
       '.jpg': 'image/jpeg',
       '.jpeg': 'image/jpeg',
+      '.webp': 'image/webp',
       '.svg': 'image/svg+xml'
     };
 
@@ -49,8 +50,8 @@ function routesHandler(req, res) {
   const { url, method } = req;
 
   // 1. Archivos estáticos (/public/...)
-  if (url.startsWith('/public/') || url.startsWith('/src/public/')) { //startswith es una funcion de js.
-    const cleanPath = url.startsWith('/') ? url.substring(1) : url; // condicion ? true : false 
+  if (url.startsWith('/public/')) {
+    const cleanPath = url.replace(/^\/public\//, '');
     serveStatic(res, cleanPath);
     return;
   }
